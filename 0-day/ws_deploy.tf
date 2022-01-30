@@ -3,7 +3,7 @@ provider "aws" {
 }    
 
 resource "aws_instance" "web_server_ec2" {
-    ami = "ami-0ac73f33a1888c64a"
+    ami = "ami-0d527b8c289b4af7f"
     instance_type = "t2.micro"
     vpc_security_group_ids = [aws_securitygroup.wp_sg.id]
     user_data = <<EOF
