@@ -1,11 +1,28 @@
 provider "aws" {
     region = "us-west-2"
-}    
+}
+
+resourse "aws_security_group" "server_secgroup" {
+    name = "ws security group"
+    
+    ingress {
+        from_port = 80
+        to_port   = 80
+        protocol  = "tcp"
+        cidr_block = ["0.0.0.0/0"]
+    }
+    
+    egress {
+        from_port = 0
+        to_port   = 0
+        protocol  = "-1"
+        cidr_block = ["0.0.0.0/0"]
+    }    
 
 resource "aws_instance" "web_server_ec2" {
     ami = "ami-0d527b8c289b4af7f"
     instance_type = "t2.micro"
-    vpc_security_group_ids = [aws_securitygroup.wp_sg.id]
+    vpc_security_group_ids = [aws_securitygroup.server_secgroup.id]
     user_data = <<EOF
 sudo apt update
 sudo apt install nginx
