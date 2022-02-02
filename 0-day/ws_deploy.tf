@@ -24,9 +24,9 @@ resource "aws_instance" "web_server_ec2" {
     instance_type = "t2.micro"
     vpc_security_group_ids = [aws_securitygroup.server_secgroup.id]
     user_data = <<EOF
-sudo apt update
-sudo apt install nginx
-sudo systemctl enable nginx
+        sudo apt update
+        sudo apt install nginx
+        sudo systemctl enable nginx
 >>EOF
 }
 
@@ -51,7 +51,7 @@ resource "aws_securitygroup" "wp_sg" {
    }
 }
     
-    outout "instance_id" {
-        value = aws_instance.web_server_ec2.id
+outout "instance_id" {
+    value = aws_instance.web_server_ec2.id
     }
         
