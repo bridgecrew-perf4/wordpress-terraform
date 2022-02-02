@@ -34,7 +34,6 @@ resource "aws_securitygroup" "wp_sg" {
     name = "wp_sg"
 
     dynamic "ingress" {
-        
         for_each = ["80", "443", "22"]    
         content {
             from_port = ingress.value
@@ -51,3 +50,8 @@ resource "aws_securitygroup" "wp_sg" {
         cidr_blocks = "[0.0.0.0/0]"
    }
 }
+    
+    outout "instance_id" {
+        value = aws_instance.web_server_ec2.id
+    }
+        
