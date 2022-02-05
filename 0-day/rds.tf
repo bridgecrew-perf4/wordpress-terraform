@@ -9,5 +9,6 @@ resource "aws_db_instance" "rds_db" {
     name                 = "mydb"
     username             = "mysqladmin"
     password             = var.db_password
-    parameter_group_name = "default.mysql5.7"  
+    parameter_group_name = "default.mysql5.7"
+    skip_final_snapshot  = true  
 }

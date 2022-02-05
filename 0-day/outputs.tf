@@ -3,7 +3,7 @@ output "instance_id" {
     }
 
 output "instance_securitygroup" {
-    value = aws_security_group.wp_sg.id
+    value = aws_security_group.wordpress_sg.id
     }
 
 output "aws_db_instance" {
