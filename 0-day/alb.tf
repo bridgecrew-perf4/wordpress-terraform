@@ -49,6 +49,5 @@ resource "aws_lb_target_group " "asg" {
         timeout   = 3
         healthy_threshold = 2
         unhealthy_threshold =2
-    }
-  
+    } 
 }
